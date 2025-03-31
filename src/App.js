@@ -22,7 +22,10 @@ function App() {
 
   // function will accept a quoteId to find that specific quote from the quotes array
   const addToFavorites = (quoteId) => {
-      console.log(`In favorite quotes with id ${quoteId}`);
+      // console.log(`In favorite quotes with id ${quoteId}`);
+      // find the quote who's id matches the quote id that was passed to favorites
+      const selectedQuote = quotes.find((quote) => quote.id === quoteId);
+      // console.log(selectedQuote); - log it out to test
   }
 
   const fetchQuotes = async () => {
