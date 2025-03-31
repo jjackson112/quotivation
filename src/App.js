@@ -26,6 +26,19 @@ function App() {
       // find the quote who's id matches the quote id that was passed to favorites
       const selectedQuote = quotes.find((quote) => quote.id === quoteId);
       // console.log(selectedQuote); - log it out to test
+
+      // what if your selectedQuote is already in the favoriteQuotes array - you don't want to add it again
+      const alreadyFavorite = favoriteQuotes.find((favorite) => favorite.id === selectedQuote.id);
+      // console.log(alreadyFavorite); - get undefined and added to favorites; give if/else statement an else if one
+
+      if (alreadyFavorite) {
+        console.log("This quote is already n your favorites! Choose another!");
+      } else if ( favoriteQuotes.length < maxFaves) {
+        setFavoriteQuotes([...favoriteQuotes, selectedQuote])
+        console.log("Added to Favorites!");
+      } else {
+        console.log("Max number of favorite quotes reached. Please delete one to add another!");
+      }
   }
 
   const fetchQuotes = async () => {
@@ -57,13 +70,26 @@ function App() {
     
     // favorite some quotes
 
+
     // show quotes in a prettier way - no stringify, replace with rendering the Quotes component and pass it the quotes state as a props called quotes
     // add 2 new props to Quotes component - categories array and category state
     // instead of passing all quotes, pass filteredQuotes function
     return (
     <div className='App'>
       <Header />
-      <main>{loading ? <Loader /> : <Quotes filteredQuotes={filteredQuotes} category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />}</main>
+      <main>
+        <section className="favorite-quotes">
+          <div className="wrapper quotes">
+            <h3>Top 3 Favorite Quotes</h3>
+              {favoriteQuotes.length > 0 && JSON.stringify(favoriteQuotes)}
+      
+            <div className="favorite-quotes-description">
+              <p>You can add up to three favorites by selecting from the options below.<br>Once you choose, they will appear here.</br></p>
+            </div>
+          </div>
+        </section>
+          {loading ? <Loader /> : <Quotes filteredQuotes={filteredQuotes} category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />}
+      </main>
       <Footer />
     </div>
   );
