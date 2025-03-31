@@ -8,7 +8,7 @@ import CategoryForm from "./CategoryForm";
 // pass new state through quotes themselves and to Category Form
 // destructure the addToFavorites
 
-const Quotes = ({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites}) => {
+function Quotes({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites}) {
     return (
         <section className="all-quotes">
             <div className="quotes wrapper">

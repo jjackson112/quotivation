@@ -5,7 +5,7 @@ import { Filter } from "react-feather";
 // set value of select element to category state, passed down to CategoryForm component from App.js
 // destructure handleCategoryChange and create onChange event listener
 
-const CategoryForm = ({ categories, category, handleCategoryChange }) => {
+function CategoryForm({ categories, category, handleCategoryChange }) {
     return (
         <div className="category-form">
             <Filter />

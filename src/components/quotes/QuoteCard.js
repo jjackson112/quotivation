@@ -9,7 +9,7 @@ import { Heart } from "react-feather";
 // update QuoteCard component to be selected - import heart icon
 // destructure addToFavorites function & pass along quoteId as an argument - check console for quote id, create onClick handler to call when clicked
 
-const QuoteCard = ({ quote, addToFavorites }) => {
+function QuoteCard({ quote, addToFavorites }) {
     return (
         <article className="quote-card">
             <div>
