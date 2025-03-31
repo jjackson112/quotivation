@@ -9,12 +9,21 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState("All");
+  const [favoriteQuotes, setFavoriteQuotes] = useState([]);
 
   const quotesUrl =
     "https://gist.githubusercontent.com/skillcrush-curriculum/6365d193df80174943f6664c7c6dbadf/raw/1f1e06df2f4fc3c2ef4c30a3a4010149f270c0e0/quotes.js";
   
   // create state for categories
   const categories = ["All", "Leadership", "Empathy", "Motivation", "Learning", "Success", "Empowerment"];
+
+  // how to favorite quotes
+  const maxFaves = 3;
+
+  // function will accept a quoteId to find that specific quote from the quotes array
+  const addToFavorites = (quoteId) => {
+      console.log(`In favorite quotes with id ${quoteId}`);
+  }
 
   const fetchQuotes = async () => {
     try {
@@ -42,14 +51,16 @@ function App() {
     // if category state doesn't equal all, then pass the quotes that belong to that category alone
     // every quote has a cateogry attribute that's an array of categories - includes
     const filteredQuotes = category !== "All" ? quotes.filter(quote => quote.categories.includes(category)) : quotes;
-  
+    
+    // favorite some quotes
+
     // show quotes in a prettier way - no stringify, replace with rendering the Quotes component and pass it the quotes state as a props called quotes
     // add 2 new props to Quotes component - categories array and category state
     // instead of passing all quotes, pass filteredQuotes function
     return (
     <div className='App'>
       <Header />
-      <main>{loading ? <Loader /> : <Quotes filteredQuotes={filteredQuotes} category={category} categories={categories} handleCategoryChange={handleCategoryChange} />}</main>
+      <main>{loading ? <Loader /> : <Quotes filteredQuotes={filteredQuotes} category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />}</main>
       <Footer />
     </div>
   );
