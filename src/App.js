@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Loader } from "react-feather";
 import "./App.css";
+import Quotes from "./components/quotes/Quotes";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
@@ -26,10 +27,11 @@ function App() {
       fetchQuotes();
     }, []);
   
+    // show quotes in a prettier way - no stringify, replace with rendering the Quotes component and pass it the quotes state as a props called quotes
   return (
     <div className='App'>
       <Header />
-      <main>{loading === true ? <Loader /> : JSON.stringify(quotes)}</main>
+      <main>{loading === true ? <Loader /> : <Quotes quotes={quotes} />}</main>
       <Footer />
     </div>
   );
