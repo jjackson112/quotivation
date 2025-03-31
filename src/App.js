@@ -81,7 +81,8 @@ function App() {
               {favoriteQuotes.length > 0 && JSON.stringify(favoriteQuotes)}
       
             <div className="favorite-quotes-description">
-              <p>You can add up to three favorites by selecting from the options below.<br>Once you choose, they will appear here.</br></p>
+              <p>You can add up to three favorites by selecting from the options below.<br />
+              Once you choose, they will appear here.</p>
             </div>
           </div>
         </section>
