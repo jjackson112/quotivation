@@ -7,9 +7,9 @@ import { Heart } from "react-feather";
 // map over the array for each category to tell what category a quote belongs to by looking at Quote Card
 
 // update QuoteCard component to be selected - import heart icon
-// destructure addToFavorites function & pass along quoteId as an argument, create onClick handler to call when clicked
+// destructure addToFavorites function & pass along quoteId as an argument - check console for quote id, create onClick handler to call when clicked
 
-const QuoteCard = ({ quote }) => {
+const QuoteCard = ({ quote, addToFavorites }) => {
     return (
         <article className="quote-card">
             <div>
@@ -21,7 +21,7 @@ const QuoteCard = ({ quote }) => {
             </div>
             <footer>
                 <p className="author">{quote.author}</p>
-                <p className="add-favorite"><Heart /></p>
+                <p className="add-favorite" onClick={() => addToFavorites(quote.id)}><Heart /></p>
             </footer>
         </article>
     );
