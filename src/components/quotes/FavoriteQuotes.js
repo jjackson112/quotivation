@@ -5,7 +5,7 @@ import FavoriteQuoteCard from "./FavoriteQuoteCard";
 // map over favorite quotes and output one favorite quote card for each favorite quote
 //key can be quote.id since it's unique, pass entire quote
 
-function FavoriteQuotes ({ favoriteQuotes, maxFaves }) {
+const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
     return (
         <section className="favorite-quotes">   
              <div className="wrapper quotes">
@@ -13,7 +13,7 @@ function FavoriteQuotes ({ favoriteQuotes, maxFaves }) {
                     {favoriteQuotes.length > 0 && (
                         <ul>
                             {favoriteQuotes.map((quote) => (
-                                <FavoriteQuoteCard key={quote.id} quote={quote} />
+                                <FavoriteQuoteCard key={quote.id} quote={quote} removeFromFavorites={removeFromFavorites} />
                             ))}
                         </ul>
                     )}
