@@ -77,7 +77,7 @@ function App() {
       }
   }
     // remove message so it won't stay up
-        const removeMessage () => {
+        const removeMessage = () => {
           setShowMessage(false);
         }
 
@@ -94,8 +94,11 @@ function App() {
     // show quotes in a prettier way - no stringify, replace with rendering the Quotes component and pass it the quotes state as a props called quotes
     // add 2 new props to Quotes component - categories array and category state
     // instead of passing all quotes, pass filteredQuotes function
+    // use && logical operator since no action is needed if it's false
+    // pass the props to Message component needed in order to display the message text and allow user to dismiss message
     return (
     <div className='App'>
+      {showMessage && <Message messageText={messageText} removeMessage={removeMessage}/>}
       <Header />
       <main>
         <FavoriteQuotes favoriteQuotes={favoriteQuotes} maxFaves={maxFaves} removeFromFavorites={removeFromFavorites}/>

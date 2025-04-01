@@ -1,9 +1,13 @@
 import React from "react";
 
-const Message = () => {
+// destructure props from App.js
+// onClick handler to invoke removeMessage - nothing needed to pass to it
+const Message = ({messageText, removeMessage}) => {
+
     return (
         <div className="message">
-            <p span="close-message">X</p>
+            <p>{messageText}</p>
+            <span className="close-message" onClick={removeMessage}>X</span>
         </div>
     )
 }
