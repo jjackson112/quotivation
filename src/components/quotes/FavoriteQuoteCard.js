@@ -1,6 +1,7 @@
 import React from "react";
 
 // destructure removeFromFavorites prop and wire it with an onClick handler
+
 const FavoriteQuoteCard = ({ quote, removeFromFavorites }) => {
     return (
         <li className="quote-card">

@@ -8,7 +8,7 @@ import CategoryForm from "./CategoryForm";
 // pass new state through quotes themselves and to Category Form
 // destructure the addToFavorites
 
-function Quotes({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites}) {
+function Quotes({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites, favoriteQuotes}) {
     return (
         <section className="all-quotes">
             <div className="quotes wrapper">
@@ -18,7 +18,7 @@ function Quotes({ filteredQuotes, categories, category, handleCategoryChange, ad
                     <CategoryForm category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />
                 </div>
                 {filteredQuotes.map((quote) => (
-                    <QuoteCard key={quote.id} quote={quote} addToFavorites={addToFavorites} />
+                    <QuoteCard key={quote.id} quote={quote} addToFavorites={addToFavorites}favoriteQuotes={favoriteQuotes}/>
                 ))}
             </div>
         </section>
