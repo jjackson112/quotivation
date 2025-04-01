@@ -61,16 +61,26 @@ function App() {
     // what if your selectedQuote is already in the favoriteQuotes array - you don't want to add it again
       const alreadyFavorite = favoriteQuotes.find((favorite) => favorite.id === selectedQuote.id);
     // console.log(alreadyFavorite); - get undefined and added to favorites; give if/else statement an else if one
-
+    // update messageText state by replacing them with console.log
+    // update showMessage state by logging it out below, set to true
+  
       if (alreadyFavorite) {
-        console.log("This quote is already n your favorites! Choose another!");
+        setMessageText("This quote is already n your favorites! Choose another!");
+        setShowMessage(true)
       } else if (favoriteQuotes.length < maxFaves) {
         setFavoriteQuotes([...favoriteQuotes, selectedQuote])
-        console.log("Added to Favorites!");
+        setMessageText("Added to Favorites!");
+        setShowMessage(true)
       } else {
-        console.log("Max number of favorite quotes reached. Please delete one to add another!");
+        setMessageText("Max number of favorite quotes reached. Please delete one to add another!");
+        setShowMessage(true)
       }
   }
+    // remove message so it won't stay up
+        const removeMessage () => {
+          setShowMessage(false);
+        }
+
     // delete a Favorite Quote
     // pass it a quote id so that you know which quote to remove
     // filter through fav quotes and update favoriteQuotes state

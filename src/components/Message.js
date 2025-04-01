@@ -1,6 +1,6 @@
 import React from "react";
 
-const Message () => {
+const Message = () => {
     return (
         <div className="message">
             <p span="close-message">X</p>
