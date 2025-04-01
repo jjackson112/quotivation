@@ -1,6 +1,10 @@
 import React from "react";
 import FavoriteQuoteCard from "./FavoriteQuoteCard";                                 
 
+// remove JSON.stringify and output ul instead
+// map over favorite quotes and output one favorite quote card for each favorite quote
+//key can be quote.id since it's unique, pass entire quote
+
 function FavoriteQuotes ({ favoriteQuotes, maxFaves }) {
     return (
         <section className="favorite-quotes">   

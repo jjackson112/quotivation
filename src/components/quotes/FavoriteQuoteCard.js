@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-function FavoriteQuoteCard () {
+function FavoriteQuoteCard ({ quote }) {
     return (
         <li className="quote-card">
             <span className="close-quote">X</span>
