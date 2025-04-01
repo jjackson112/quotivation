@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Loader } from "react-feather";
-import "./App.css";
 import Quotes from "./components/quotes/Quotes";
+import FavoriteQuotes from "./components/quotes/FavoriteQuotes"
+import "./App.css";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
@@ -75,6 +76,7 @@ function App() {
     <div className='App'>
       <Header />
       <main>
+        <FavoriteQuotes favoriteQuotes={favoriteQuotes} maxFaves={maxFaves}/>
         <section className="favorite-quotes">
           <div className="wrapper quotes">
             <h3>Top 3 Favorite Quotes</h3>
