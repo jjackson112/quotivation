@@ -15,7 +15,7 @@ const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
                 <div className="favorite-quotes-description">
                     {favoriteQuotes.length < maxFaves ? (
                     <h3>You can add <strong>{maxFaves - favoriteQuotes.length}</strong> more quotes to your top favorite
-                    {maxFaves - favoriteQuotes.length === 1 ? "" :"s"}by selecting from the options below.<br />
+                    {maxFaves - favoriteQuotes.length === 1 ? "" :"s"} by selecting from the options below.<br />
                     Once you choose, they will appear here.</h3>
                     ) : (
                         <h3>You've reached the max of {maxFaves} favorite quotes. Remove one to add another.</h3>
