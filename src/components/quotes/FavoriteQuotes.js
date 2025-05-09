@@ -3,7 +3,8 @@ import FavoriteQuoteCard from "./FavoriteQuoteCard";
 
 // remove JSON.stringify and output ul instead
 // map over favorite quotes and output one favorite quote card for each favorite quote
-//key can be quote.id since it's unique, pass entire quote
+// key can be quote.id since it's unique, pass entire quote
+// add index to quote in map array and listPosition prop to FavoriteQuoteCard component
 
 const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
     return (
@@ -12,8 +13,8 @@ const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
                 <h3>Top 3 Favorite Quotes</h3>
                     {favoriteQuotes.length > 0 && (
                         <ul>
-                            {favoriteQuotes.map((quote) => (
-                                <FavoriteQuoteCard key={quote.id} quote={quote} removeFromFavorites={removeFromFavorites} />
+                            {favoriteQuotes.map((quote, index) => (
+                                <FavoriteQuoteCard key={quote.id} quote={quote} removeFromFavorites={removeFromFavorites} listPosition={index + 1} />
                             ))}
                         </ul>
                     )}

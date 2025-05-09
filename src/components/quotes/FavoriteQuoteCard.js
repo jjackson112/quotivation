@@ -2,9 +2,9 @@ import React from "react";
 
 // destructure removeFromFavorites prop and wire it with an onClick handler
 
-const FavoriteQuoteCard = ({ quote, removeFromFavorites }) => {
+const FavoriteQuoteCard = ({ quote, removeFromFavorites, listPosition }) => {
     return (
-        <li className="quote-card">
+        <li className="quote-card" data-list-position={listPosition}>
             <span className="close-quote" onClick={() => removeFromFavorites(quote.id)}>X</span>
             <h3>{quote.text}</h3>
             <p>{quote.author}</p>
