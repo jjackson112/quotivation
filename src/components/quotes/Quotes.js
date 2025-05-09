@@ -8,7 +8,7 @@ import CategoryForm from "./CategoryForm";
 // pass new state through quotes themselves and to Category Form
 // destructure the addToFavorites
 
-function Quotes({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites, favoriteQuotes }) {
+function Quotes({ filteredQuotes, categories, category, handleCategoryChange, addToFavorites, favoriteQuotes}) {
     return (
         <section className="all-quotes">
             <div className="quotes wrapper">
@@ -17,26 +17,14 @@ function Quotes({ filteredQuotes, categories, category, handleCategoryChange, ad
                     <p>Browse through your collection of quotes</p>
                     {filteredQuotes.length > 0 && (
                         <p className="quote-count">
-                            Showing {filteredQuotes.length} quote{filteredQuotes.length !== 1 ? "s" : ""} in "{category}" category
+                            Showing {filteredQuotes.length} quote{filteredQuotes.length !== 1 ? "s" : ""} in the"{category}" category
                         </p>
                     )}
-                    <CategoryForm 
-                        category={category} 
-                        categories={categories} 
-                        handleCategoryChange={handleCategoryChange} 
-                    />
+                    <CategoryForm category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />
                 </div>
-
-                <ul className="quote-list">
-                    {filteredQuotes.map((quote) => (
-                        <QuoteCard 
-                            key={quote.id} 
-                            quote={quote} 
-                            addToFavorites={addToFavorites} 
-                            favoriteQuotes={favoriteQuotes} 
-                        />
-                    ))}
-                </ul>
+                {filteredQuotes.map((quote) => (
+                    <QuoteCard key={quote.id} quote={quote} addToFavorites={addToFavorites}favoriteQuotes={favoriteQuotes}/>
+                ))}
             </div>
         </section>
     );
