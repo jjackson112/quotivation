@@ -15,6 +15,7 @@ function Quotes({ filteredQuotes, categories, category, handleCategoryChange, ad
                 <div className="category-header">
                     <h2>Pick your Favorite Quotes Below</h2>
                     <p>Browse through your collection of quotes</p>
+                    <p>You have a collection of {Quotes.number} inspiring {category} quotes!</p>
                     <CategoryForm category={category} categories={categories} handleCategoryChange={handleCategoryChange} addToFavorites={addToFavorites} />
                 </div>
                 {filteredQuotes.map((quote) => (

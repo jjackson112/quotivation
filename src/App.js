@@ -39,6 +39,24 @@ function App() {
     useEffect (() => {
       fetchQuotes();
     }, []);
+  
+    // load favorite quotes from local storage so when you refresh they stay favorited
+    useEffect(() => {
+      try {
+        const savedQuotes = JSON.parse(localStorage.getItem("favoriteQuotes"));
+        if (savedQuotes) {
+          setFavoriteQuotes(savedQuotes);
+      }
+      } catch (error) {
+        console.error("Error loading quotes", error);
+        localStorage.removeItem("favoriteQuotes")
+      }
+    }, []);
+
+    // save favorites to localStorage whenever they change
+    useEffect(() => {
+      localStorage.setItem("favoriteQuotes", JSON.stringify(favoriteQuotes));
+    }, [favoriteQuotes]);
 
     // update our state for filtered quotes - ternary operator
     // if category state equals all, then pass all quotes 
